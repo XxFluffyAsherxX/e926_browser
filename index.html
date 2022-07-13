@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Just a random e621.net browser 🙃">
+	<meta name="og:image" content="">
+	<meta name="og:title" content="e621.net Browser">
+	<meta name="og:site_name" content="e621.net Browser">
+	<meta name="og:description" content="Just a random e621.net browser 🙃">
+	<meta name="author" content="Robin888b / Raven Spart">
+	<meta name="theme-color" content="#5865F2">
+	<title>e621.net Browser</title>
+
+	<meta name="color-scheme" content="dark">
+    <link rel="apple-touch-icon" sizes="180x180" href="">
+    <link rel="icon" type="image/png" sizes="32x32" href="">
+    <link rel="icon" type="image/png" sizes="16x16" href="">
+    <link rel="manifest" href="">
+    <link rel="shortcut icon" href="">
+    <meta name="msapplication-TileColor" content="#9b81e0">
+    <meta name="msapplication-config" content="">
+    <meta name="theme-color" content="#9b81e0">
+
+    <link rel="stylesheet" href="./src/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;1,100&display=swap" rel="stylesheet">
+    <script src="./src/app.js"></script>
+</head>
+<body>
+    <section>
+        <div class="search">
+            <div>
+                <input type="search" id="searchBox" placeholder="fox wolf duo">
+                <input type="button" id="searchButton" value="Search" onclick="search()">
+            </div>
+            <div class="searchOption divLight">
+                <div>
+                    <p>Order : </p>
+                    <select id="orderSelect">
+                        <option value="1" selected>random</option>
+                        <option value="2">normal</option>
+                    </select>
+                </div>
+                <div>
+                    <p>Ratting : </p>
+                    <select id="rattingOption">
+                        <option value="s" selected>safe (general)</option>
+                        <option value="q" disabled>questionable (mature)</option>
+                        <option value="e" disabled>explicit (adult)</option>
+                    </select>
+                </div>
+                <div>
+                    <p>Minimum score : </p>
+                    <input type="number" id="minimumScoreInput" placeholder="100">
+                </div>
+            </div>
+        </div>
+        <div id="galerie">
+            
+        </div>
+    </section>
+</body>
+</html>
