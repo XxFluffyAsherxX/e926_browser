@@ -1,5 +1,16 @@
 // https://e621.net/posts?limit=1&tags=order:random+fox+gay+score:%3E100
 
+
+function ejs_code_clavier(keyStroke){
+    ejs_code_eventChooser = (!document.all) ? keyStroke.which : event.keyCode;
+    if (event.keyCode == 13){
+        console.log("entré")
+        search()
+    }
+}document.onkeypress = ejs_code_clavier;
+
+
+
 function HideNSFW() {
     const ratingDiv = document.getElementById("ratingDiv")
     const ratingSelect = document.getElementById("rattingOption")
