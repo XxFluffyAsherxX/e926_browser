@@ -27,8 +27,12 @@
     <script src="./src/app.js"></script>
 </head>
 <body>
-    <section>
-        <div class="search">
+    <section id="top"></section>
+    <section id="S1">
+        <div id="search">
+            <center>
+                <h1>e621.net Browser by <a href="https://robin888b.github.io/">Robin888b</a></h1>
+            </center>
             <div>
                 <input type="search" id="searchBox" placeholder="fox wolf duo">
                 <input type="button" id="searchButton" value="Search" onclick="search()">
@@ -41,12 +45,13 @@
                         <option value="2">normal</option>
                     </select>
                 </div>
-                <div>
+                <div id="ratingDiv" class="dspNONE">
                     <p>Ratting : </p>
                     <select id="rattingOption">
+                        <option value="0" selected>all</option>
                         <option value="s" selected>safe (general)</option>
-                        <option value="q" disabled>questionable (mature)</option>
-                        <option value="e" disabled>explicit (adult)</option>
+                        <option value="q">questionable (mature)</option>
+                        <option value="e">explicit (adult)</option>
                     </select>
                 </div>
                 <div>
@@ -58,6 +63,19 @@
         <div id="galerie">
             
         </div>
+        <div class="button">
+            <p>
+                <button onclick="search(-1)"><<</button> page <span id="pageNumber">1</span> <button onclick="search(1)">>></button>
+            </p>
+        </div>
     </section>
+
+    <div id="modal">
+        <div id="modalBackground" onclick="CloseModal()"></div>
+        <div id="modalContent">
+            <img src="" id="modalImg">
+            <p><span class="green">↑???</span> <span class="red">↓???</span> | Favorites: ??? | ID: ?????????? | Rating: ????<br><a href="#" id="downloadPost">Download</a> | <a href="#" id="viewOnE6">View on e621.net</a></p>
+        </div>
+    </div>
 </body>
 </html>

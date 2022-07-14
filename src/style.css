@@ -23,13 +23,26 @@
     border-radius: 0;
 }
 
-section {
+
+
+.green {
+    color: green;
+}
+.red {
+    color: red;
+}
+.dspNONE {
+    display: none!important;
+}
+
+#S1 {
   background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-height: 90vh;
 }
-section::before {
+#S1::before {
   background: rgb(23,17,32);
   background: linear-gradient(180deg, var(--backColor) 30%, var(--backColorGradient) 900%);
   content: "";
@@ -53,15 +66,15 @@ section::before {
     border-left: none;
 }
 
-.search {
+#search {
     margin: 75px;
-    margin-top: 100px;
+    margin-top: 50px;
     box-shadow: 0px 0px 25px 0px rgba(255,255,255,0.25);
     padding: 20px;
     border-radius: 20px;
 }
 
-.search div {
+#search div {
     display: flex;
 }
 
@@ -82,15 +95,71 @@ section::before {
 
 #galerie {
     margin: 75px;
-    margin-top: 100px;
+    margin-top: 20px;
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 .galerieItem {
-    box-shadow: 0px 0px 25px 0px rgba(255,255,255,0.25);
     height: 150px;
     width: auto;
-    border-radius: 20px;
+    border-radius: 10px;
     margin: 20px;
+}
+.safe {
+    box-shadow: 0px 0px 35px 0px rgba(255,255,255,0.25);
+    border: rgba(255, 255, 255, 0.7);
+    border-style: solid;
+}
+.mature {
+    box-shadow: 0px 0px 35px 0px rgba(0, 81, 255, 0.25);
+    border: rgba(0, 81, 255, 0.7);
+    border-style: solid;
+}
+.adult {
+    box-shadow: 0px 0px 35px 0px rgba(255, 0, 0, 0.25);
+    border: rgba(255, 0, 0, 0.7);
+    border-style: solid;
+}
+
+#modal {
+    display: none;
+    flex-direction: column;
+    position:absolute;
+    
+    flex-direction: column;
+    align-items: center;
+    top: 0;
+    left: 0;
+}
+#modalBackground {
+    position: fixed;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: #00000073;
+    z-index: 999;
+    top: 0;
+    left: 0;
+}
+#modalContent {
+    display: block;
+    margin: 50px;
+    padding: 25px;
+    z-index: 10000;
+    background-color: var(--backColor);
+    color: #ffffff;
+    border-radius: 25px;
+}
+#modalImg {
+    max-width: 100%;
+    height: auto;
+}
+#modal.active {
+    display: flex;
+}
+.button {
+    bottom: 15px;
 }
