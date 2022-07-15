@@ -69,8 +69,10 @@ function search(arg) {
                     rating = "adult"
                 break;
             }
-            const newItem = `<a href="#top"><img src="${String(data.posts[i].preview.url)}" class="galerieItem ${rating}" onclick="showPicture(${String(data.posts[i].id)})"></a>`
-            galerie.innerHTML += newItem;
+            if (data.posts[i].file.url != null) {
+                const newItem = `<a href="#top"><img src="${String(data.posts[i].preview.url)}" class="galerieItem ${rating}" onclick="showPicture(${String(data.posts[i].id)})"></a>`
+                galerie.innerHTML += newItem;
+            }
         }
     }
     loadItem()
@@ -82,11 +84,18 @@ function showPicture(ID) {
         const result = await fetch(`https://e621.net/posts/${ID}.json`)
         const data = await result.json()
         console.log(data)
-        let base = `<img src="${data.post.file.url}" id="modalImg">
-        <p><span class="green">↑${data.post.score.up}</span> <span class="red">↓${data.post.score.down}</span> | Favorites: ${data.post.fav_count} | ID: ${ID} | Rating: ${data.post.rating}<br><a href="${data.post.file.url}" id="downloadPost">Download</a> | <a href="https://e621.net/posts/${ID}" id="viewOnE6">View on e621.net</a></p>`
-        modalContent.innerHTML = base
-        const modal = document.getElementById("modal")
-        modal.classList.add("active")
+        function qhuiofs(){
+            let base = `<img src="${data.post.file.url}" id="modalImg">
+            <p><span class="green">↑${data.post.score.up}</span> <span class="red">↓${data.post.score.down}</span> | Favorites: ${data.post.fav_count} | ID: ${ID} | Rating: ${data.post.rating}<br><a href="${data.post.file.url}" id="downloadPost">Download</a> | <a href="https://e621.net/posts/${ID}" id="viewOnE6">View on e621.net</a></p>`
+            if (data.post.file.url.endsWith(".webm")){
+                base = `<video controls src="${data.post.file.url}" id="modalImg"></video>
+                <p><span class="green">↑${data.post.score.up}</span> <span class="red">↓${data.post.score.down}</span> | Favorites: ${data.post.fav_count} | ID: ${ID} | Rating: ${data.post.rating}<br><a href="${data.post.file.url}" id="downloadPost">Download</a> | <a href="https://e621.net/posts/${ID}" id="viewOnE6">View on e621.net</a></p>`
+            }
+            modalContent.innerHTML = base
+            const modal = document.getElementById("modal")
+            modal.classList.add("active")
+        }
+        await qhuiofs()
     }
     loadItem()
 }
