@@ -1,7 +1,7 @@
 # e926.net browser
 
 
-(compatible with a certain e- website);
+(compatible with a certain e6 website);
 #### if you want to see NSFW content, just remove `dspNONE` at the line 48 in the `index.html` file ⤵
 
 before :
